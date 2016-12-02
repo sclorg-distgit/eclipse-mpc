@@ -4,12 +4,12 @@
 
 %global baserelease 1
 
-%global mpc_repo_tag R_1_5_0a
+%global mpc_repo_tag 0184fd8d41bbab2966fabe8e38d947b9fae4e789
 %global uss_repo_tag 28fcf4edfc8e812332fc2c6bd241fab6e0f56094
 
 Name:           %{?scl_prefix}eclipse-mpc
-Version:        1.5.0
-Release:        3.%{baserelease}%{?dist}
+Version:        1.5.1
+Release:        1.%{baserelease}%{?dist}
 Summary:        Eclipse Marketplace Client
 
 License:        EPL
@@ -84,6 +84,12 @@ set -e -x
 %files -f .mfiles
 
 %changelog
+* Tue Oct 11 2016 Mat Booth <mat.booth@redhat.com> - 1.5.1-1.1
+- Auto SCL-ise package for rh-eclipse46 collection
+
+* Tue Oct 04 2016 Mat Booth <mat.booth@redhat.com> - 1.5.1-1
+- Update to Neon.1 version
+
 * Mon Aug 01 2016 Mat Booth <mat.booth@redhat.com> - 1.5.0-3.1
 - Auto SCL-ise package for rh-eclipse46 collection
 
