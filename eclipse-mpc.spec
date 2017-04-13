@@ -4,11 +4,11 @@
 
 %global baserelease 1
 
-%global mpc_repo_tag 0184fd8d41bbab2966fabe8e38d947b9fae4e789
+%global mpc_repo_tag ae4734c8af54b263efb419fb3092b5f7f5629a9c
 %global uss_repo_tag 28fcf4edfc8e812332fc2c6bd241fab6e0f56094
 
 Name:           %{?scl_prefix}eclipse-mpc
-Version:        1.5.1
+Version:        1.5.3
 Release:        1.%{baserelease}%{?dist}
 Summary:        Eclipse Marketplace Client
 
@@ -84,14 +84,17 @@ set -e -x
 %files -f .mfiles
 
 %changelog
-* Tue Oct 11 2016 Mat Booth <mat.booth@redhat.com> - 1.5.1-1.1
+* Mon Jan 16 2017 Mat Booth <mat.booth@redhat.com> - 1.5.3-1.1
 - Auto SCL-ise package for rh-eclipse46 collection
+
+* Wed Jan 11 2017 Mat Booth <mat.booth@redhat.com> - 1.5.3-1
+- Update to latest release
+
+* Thu Oct 13 2016 Mat Booth <mat.booth@redhat.com> - 1.5.2-1
+- Update to 1.5.2 for Neon.1a
 
 * Tue Oct 04 2016 Mat Booth <mat.booth@redhat.com> - 1.5.1-1
 - Update to Neon.1 version
-
-* Mon Aug 01 2016 Mat Booth <mat.booth@redhat.com> - 1.5.0-3.1
-- Auto SCL-ise package for rh-eclipse46 collection
 
 * Mon Aug 01 2016 Mat Booth <mat.booth@redhat.com> - 1.5.0-3
 - Drop usage of PMD plugin
