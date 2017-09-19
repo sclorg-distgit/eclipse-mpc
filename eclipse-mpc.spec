@@ -4,11 +4,11 @@
 
 %global baserelease 1
 
-%global mpc_repo_tag ae4734c8af54b263efb419fb3092b5f7f5629a9c
+%global mpc_repo_tag 1.5_maintenance
 %global uss_repo_tag 28fcf4edfc8e812332fc2c6bd241fab6e0f56094
 
 Name:           %{?scl_prefix}eclipse-mpc
-Version:        1.5.3
+Version:        1.5.4
 Release:        1.%{baserelease}%{?dist}
 Summary:        Eclipse Marketplace Client
 
@@ -36,7 +36,7 @@ Requires: %{?scl_prefix}eclipse-p2-discovery
 The Eclipse Marketplace Client provides access to extension catalogs.
 
 %prep
-%{?scl:scl enable %{scl_maven} %{scl} - << "EOF"}
+%{?scl:scl enable %{scl_maven} %{scl} - << "EOFSCL"}
 set -e -x
 %setup -q -n org.eclipse.epp.mpc-%{mpc_repo_tag}
 
@@ -64,28 +64,34 @@ sed -i -e '/strictCompilerTarget/d' org.eclipse.epp.mpc-parent/pom.xml
 
 %mvn_package "::pom::" __noinstall
 %mvn_package "::jar:sources{,-feature}:"
-%{?scl:EOF}
+%{?scl:EOFSCL}
 
 
 %build
-%{?scl:scl enable %{scl_maven} %{scl} - << "EOF"}
+%{?scl:scl enable %{scl_maven} %{scl} - << "EOFSCL"}
 set -e -x
 %mvn_build -j -f -- -DforceContextQualifier=v%(date -u +%%Y%%m%%d-%%H00)
-%{?scl:EOF}
+%{?scl:EOFSCL}
 
 
 %install
-%{?scl:scl enable %{scl_maven} %{scl} - << "EOF"}
+%{?scl:scl enable %{scl_maven} %{scl} - << "EOFSCL"}
 set -e -x
 %mvn_install
-%{?scl:EOF}
+%{?scl:EOFSCL}
 
 
 %files -f .mfiles
 
 %changelog
-* Mon Jan 16 2017 Mat Booth <mat.booth@redhat.com> - 1.5.3-1.1
+* Fri Mar 31 2017 Mat Booth <mat.booth@redhat.com> - 1.5.4-1.1
 - Auto SCL-ise package for rh-eclipse46 collection
+
+* Wed Mar 29 2017 Mat Booth <mat.booth@redhat.com> - 1.5.4-1
+- Update to latest upstream version
+
+* Fri Feb 10 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.5.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
 
 * Wed Jan 11 2017 Mat Booth <mat.booth@redhat.com> - 1.5.3-1
 - Update to latest release
